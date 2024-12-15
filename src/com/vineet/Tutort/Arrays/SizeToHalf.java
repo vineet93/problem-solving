@@ -1,45 +1,41 @@
 package com.vineet.Tutort.Arrays;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeSet;
+import java.util.*;
 
 public class SizeToHalf {
     public static void main(String[] args) {
-        int[] arr = {1000,1000,3,7};
+        int[] arr = {3,3,3,3,5,5,5,5,2,7};
         System.out.println(minSetSize(arr));
     }
 
     public static int minSetSize(int[] arr) {
 
-        int size= arr.length;
-        int count =0;
-        int sum =0;
-        Map<Integer,Integer> hm= new HashMap<>();
-        TreeSet<Integer>  ts= new TreeSet<>();
+        Map<Integer, Integer> map = new HashMap<>();
+        ArrayList<Integer>[] list = new ArrayList[arr.length + 1];
 
-        for(int val:arr) {
-            if(hm.containsKey(val)){
-                hm.put(val,hm.get(val) + 1);
-            } else {
-                hm.put(val,1);
+        for (int num : arr) {
+            map.put(num, map.getOrDefault(num, 0) + 1); // Creating Frequency Map.
+        }
+
+        for (int num : map.keySet()) {
+            int count = map.get(num);
+            if (list[count] == null) {
+                list[count] = new ArrayList<Integer>();
+            }
+            list[count].add(num);
+        }
+
+        int steps = 0, res = 0;
+        for (int i = arr.length; i > 0; i--) {
+            List<Integer> cur = list[i];
+            if (cur == null || cur.size() == 0) continue;
+            for (int num : cur) {
+                steps += i;
+                res++;
+                if (steps >= arr.length / 2)
+                    return res;
             }
         }
-
-        for(Integer val:hm.keySet()){
-            ts.add(hm.get(val));
-        }
-
-        TreeSet<Integer> res = (TreeSet<Integer>)ts.descendingSet();
-
-        for(Integer val:ts){
-            if(sum >= (size/2) ){
-                return count;
-            }
-            sum += val;
-            count++;
-        }
-
-        return 0;
+        return arr.length;
     }
 }

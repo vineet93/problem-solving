@@ -11,7 +11,7 @@ public class StreamExample1 {
 		
 		
           
-        List<Integer> list1 = Arrays.asList(1,2,3,4,5,6,7,8,9);
+        List<Integer> list1 = Arrays.asList(3,7,9,11,13);
         
       
      boolean flag = list1.stream().allMatch(s-> s % 2 != 0);
@@ -24,7 +24,7 @@ public class StreamExample1 {
      System.out.println("Max of stream is :"+list1.stream().max((x,y) -> x.compareTo(y)).get());
 	 System.out.println("Min of stream is :"+list1.stream().min((x,y) -> x.compareTo(y)).get());
 	 System.out.println("Count of even numbers in stream is :"+list1.stream().filter(s -> s%2 == 0).count());
-	 System.out.println("Count of even numbers in stream is :"+list1.stream().filter(s -> s%2 != 0).collect(Collectors.counting()));
+	 System.out.println("Count of odd numbers in stream is :"+list1.stream().filter(s -> s%2 != 0).collect(Collectors.counting()));
 
 	}
   }

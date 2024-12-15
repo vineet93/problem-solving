@@ -14,10 +14,12 @@ public class Traverse2DArray {
         int col = mat[0].length;
 
         System.out.println("Num of Row is : " +row+ " Num of Col is :"+col);
-
+        int sum;
         for(int i=0; i<row;i++){
+            sum=0;
             for(int j=0; j<col;j++) {
-                System.out.print(mat[i][j]+" ");
+                sum += mat[i][j];
+                System.out.print(sum+" ");
             }
             System.out.println();
         }

@@ -18,10 +18,11 @@ public class MajorityElement1 {
     public static void main(String[] args) {
 
         int[] nums = {2,2,1,1,1,2,2};
-        int[] nums2 = {2,2,1,1,1,2,2};
+        int[] nums2 = {2,2,2,2,1,1,1};
 
-        System.out.println("Majority Element is Sort and check : " + majorityElement(nums));
-        System.out.println("Majority Element is Brute force: " + majorityElementBruteForce(nums2));
+        System.out.println("Majority Element is Sort and check : "  + majorityElement(nums));
+        System.out.println("Majority Element is Brute force: "      + majorityElementBruteForce(nums2));
+        System.out.println("Majority Element is Optimised: "        + majorityElementOptimised(nums2));
     }
 
     public static int majorityElement(int[] nums) {   // Approach: Sort and Check the value at arr[n/2]: TC: O(NlogN)
@@ -57,9 +58,10 @@ public class MajorityElement1 {
                     ++freq;
             }
 
-            if (freq > n / 2)
+            if (freq > n / 2) {
                 ele = arr[i];
                 break;
+            }
         }
         return ele;
     }
@@ -73,28 +75,21 @@ public class MajorityElement1 {
         // IP: [3 2 3]
         // OP: 3
 
-        int major = nums[0], count = 1;  // major : 3
+        int major = nums[0], count = 1;
         int i=1;
-        int n = nums.length; // n = 3
+        int n = nums.length;
 
-        for (i=1; i<n; i++) // i =1, i = 2
-        {
-            // New Element -> Increase frequency from 0 -> 1
+        for (i=1; i<n; i++){
             if (count == 0)
             {
-                ++count; // count = 1
-                major = nums[i]; // major = nums[2] = 3
-            }
-
-            // Same Element -> Increase Frequency By 1
-            else if (nums[i] == major) // nums[1] =2, major = 3
                 ++count;
-
-                // Different Element -> Decrease Frequency By 1
+                major = nums[i];
+            }
+            else if (nums[i] == major)
+                ++count;
             else
-                --count; // count = 0
+                --count;
         }
-
-        return major; // 3 - ANS
+        return major;
     }
 }

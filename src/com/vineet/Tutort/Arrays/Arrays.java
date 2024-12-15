@@ -1,4 +1,4 @@
-package com.vineet.Tutort.Arrays;
+package src.com.vineet.Tutort.Arrays;
 
 public class Arrays {
 

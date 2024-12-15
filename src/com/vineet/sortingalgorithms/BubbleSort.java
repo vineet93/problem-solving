@@ -18,7 +18,7 @@ public class BubbleSort {
 			    swapped=true;
 				}
 			  }
-			if(swapped == false){
+			if(swapped == false) {
 				break;
 			}
 		}
@@ -49,7 +49,7 @@ public class BubbleSort {
 
 	public static void main(String[] args) {
 		
-		int[] arr={12,23,34,1,22,10};
+		int[] arr={3,2,1,5,6,4};
 		BubbleSort sort= new BubbleSort();
 		sort.bubbleSort(arr);
 		//sort.bubbleSort1(arr);

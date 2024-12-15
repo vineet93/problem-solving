@@ -10,7 +10,7 @@ public class SummaryRanges {
 
        int[] nums = {0,1,2,4,5,7};
        List list = summaryRanges(nums);
-       list.stream().forEach(s-> System.out.println(s));
+       list.stream().forEach(s-> System.out.print(s+","));
     }
 
     public static List<String> summaryRanges(int[] nums) {

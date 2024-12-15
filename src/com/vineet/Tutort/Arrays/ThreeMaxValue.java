@@ -1,6 +1,7 @@
 package com.vineet.Tutort.Arrays;
 
 import javax.sound.midi.Soundbank;
+import java.util.HashSet;
 
 public class ThreeMaxValue {
 
@@ -30,25 +31,26 @@ public class ThreeMaxValue {
         find3Max(arr6,arr6.length);
         // OP : Invalid Input
 
+        int arr7[]= {1,1,2};
+        find3Max(arr7,arr7.length);
+        // OP : 2 1 1
+
+
     }
 
     public static void find3Max(int[] arr, int size){
-
-        if(size < 3){
-            System.out.println("Invalid Input");
-            return;
-        }
 
         int firstMax  = arr[0];
         int secondMax = Integer.MIN_VALUE;
         int thirdMax  = Integer.MIN_VALUE;
 
         for(int i=1;i<size;i++) {
+            if (arr[i] == firstMax || arr[i] == secondMax || arr[i] == thirdMax) continue;
             if (arr[i] > firstMax) {
                 thirdMax = secondMax;
                 secondMax = firstMax;
                 firstMax = arr[i];
-            } else if(arr[i] > secondMax){
+            } else if (arr[i] > secondMax) {
                 thirdMax = secondMax;
                 secondMax = arr[i];
             } else {

@@ -15,14 +15,16 @@ public class SumOfSquareOfOddNumbers {
 	public static void main(String[] args) {
 		 List<Integer> list = new ArrayList<Integer>();
 		 
-         for(int i = 1; i< 10; i++){
+         for(int i = 1; i< 4; i++) {
              list.add(i);
          }
-       
+        System.out.println(list);
          Stream<Integer> stream = list.stream();
             Optional<Integer> num = stream.filter(p -> p%2!=0).map(p->p*p).reduce((x,y)->x+y);
+            Optional<Integer> num2 = list.stream().map(p->p*p).reduce((x,y)->x+y);
             //oddlist.forEach(p-> System.out.println(p));
             System.out.println(num.get());
+            System.out.println(num2.get());
 
 	}
 }

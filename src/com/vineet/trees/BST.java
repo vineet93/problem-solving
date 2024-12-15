@@ -13,12 +13,12 @@ public class BST {
 		bst.insert(root, 18);
 		bst.insert(root, 5);
 		bst.insert(root, 25);
-		//bst.inorder(root);
-		//bst.preorder(root);
-		//bst.postorder(root);
-		//int maxDepth = bst.heightOfTree(root);
-		//System.out.println("Max Depth of BST is :"+maxDepth);
-		//bst.levelOrderTraversal(root);
+		bst.inorder(root);
+		bst.preorder(root);
+		bst.postorder(root);
+		int maxDepth = bst.heightOfTree(root);
+		System.out.println("Max Depth of BST is :"+maxDepth);
+		bst.levelOrderTraversal(root);
 		bst.spiralOderTraversal(root);
 
 	}
